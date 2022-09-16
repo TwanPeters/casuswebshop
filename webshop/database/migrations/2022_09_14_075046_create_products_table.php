@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name', 45);
             $table->mediumtext('description');
+            $table->timestamps();
             
         });
     }

@@ -17,6 +17,7 @@ class CreatePricesTable extends Migration
             $table->id();
             $table->decimal('price');
             $table->datetime('effdate');    
+            $table->timestamps();
         });
     }
 

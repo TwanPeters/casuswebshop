@@ -17,6 +17,7 @@ class CreateOrderTable extends Migration
             $table->id();
             $table->timestamp('orderdate');
             $table->integer('status');
+        
         });
     }
 
