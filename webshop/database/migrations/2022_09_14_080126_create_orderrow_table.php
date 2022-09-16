@@ -15,8 +15,6 @@ class CreateOrderrowTable extends Migration
     {
         Schema::create('orderrow', function (Blueprint $table) {
             $table->id();
-            $table->integer('order_id');
-            $table->integer('product_id');
         });
     }
 
