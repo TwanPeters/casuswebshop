@@ -13,7 +13,7 @@ class AddRelationsToReviewTable extends Migration
      */
     public function up()
     {
-        Schema::table('review', function (Blueprint $table) {
+        Schema::table('reviews', function (Blueprint $table) {
             // user_id to review
             $table->unsignedBigInteger('users_id')->nullable();
 
@@ -35,7 +35,7 @@ class AddRelationsToReviewTable extends Migration
      */
     public function down()
     {
-        Schema::table('review', function (Blueprint $table) {
+        Schema::table('reviews', function (Blueprint $table) {
             //
         });
     }

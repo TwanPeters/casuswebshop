@@ -13,11 +13,11 @@ class AddRelationsToOrderrowTable extends Migration
      */
     public function up()
     {
-        Schema::table('orderrow', function (Blueprint $table) {
+        Schema::table('orderrows', function (Blueprint $table) {
             //order naar orderrow
-            $table->unsignedBigInteger('order_id')->nullable();
+            $table->unsignedBigInteger('orders_id')->nullable();
 
-            $table->foreign('order_id')->references('id')->on('order');
+            $table->foreign('orders_id')->references('id')->on('orders');
 
             //product naar orderrow
             $table->unsignedBigInteger('product_id')->nullable();
@@ -33,7 +33,7 @@ class AddRelationsToOrderrowTable extends Migration
      */
     public function down()
     {
-        Schema::table('orderrow', function (Blueprint $table) {
+        Schema::table('orderrows', function (Blueprint $table) {
             //
         });
     }

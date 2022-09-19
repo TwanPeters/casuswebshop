@@ -13,7 +13,7 @@ class AddRelationsToOrderTable extends Migration
      */
     public function up()
     {
-        Schema::table('order', function (Blueprint $table) {
+        Schema::table('orders', function (Blueprint $table) {
             $table->unsignedBigInteger('users_id')->nullable();
 
             $table->foreign('users_id')->references('id')->on('users');
@@ -27,7 +27,7 @@ class AddRelationsToOrderTable extends Migration
      */
     public function down()
     {
-        Schema::table('order', function (Blueprint $table) {
+        Schema::table('orders', function (Blueprint $table) {
             //
         });
     }

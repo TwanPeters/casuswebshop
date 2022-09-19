@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\OrderRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use COM;
 
 /**
- * Class UserCrudController
+ * Class OrderCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class UserCrudController extends CrudController
+class OrderCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -27,9 +26,9 @@ class UserCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\User::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/user');
-        CRUD::setEntityNameStrings('user', 'users');
+        CRUD::setModel(\App\Models\Order::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/order');
+        CRUD::setEntityNameStrings('orders', 'orders');
     }
 
     /**
@@ -40,12 +39,11 @@ class UserCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        
         CRUD::column('id');
-        CRUD::column('name');
-        CRUD::column('name');
-        CRUD::column('email');
-        CRUD::column('password');
-        CRUD::field('role_id');
+        CRUD::column('orderdate');
+        CRUD::column('user_id');
+        CRUD::column('status');
         
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -62,11 +60,11 @@ class UserCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
+        
         CRUD::field('id');
-        CRUD::field('name');
-        CRUD::field('email');
-        CRUD::field('password');
-        CRUD::field('role_id');
+        CRUD::field('orderdate');
+        CRUD::field('user_id');
+        CRUD::field('status');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
