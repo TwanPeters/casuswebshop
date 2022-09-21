@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
 
 class Products extends Model
 {
-    use CrudTrait;
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+    use HasApiTokens, HasFactory, Notifiable;
+
 
     /*
     |--------------------------------------------------------------------------
@@ -16,8 +21,8 @@ class Products extends Model
     */
 
     protected $table = 'products';
-    // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    protected $primaryKey = 'id';
+    public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];
@@ -35,6 +40,14 @@ class Products extends Model
     |--------------------------------------------------------------------------
     */
 
+        public function product()
+        {
+            return $this->hasMany(Reviews::class);
+            return $this->hasMany(Orderrow::class);
+            return $this->hasMany(Prices::class);
+            return $this->belongsTo(Categories::class);
+        }
+    
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -52,4 +65,4 @@ class Products extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-}
+    }

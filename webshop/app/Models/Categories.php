@@ -34,7 +34,16 @@ class Categories extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+}
+class Product extends Model
+{
 
+
+    public function category()
+    {
+        return $this->hasMany(Products::class);
+    }
+}
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -52,4 +61,4 @@ class Categories extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-}
+

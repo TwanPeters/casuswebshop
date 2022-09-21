@@ -16,8 +16,8 @@ class Order extends Model
     */
 
     protected $table = 'orders';
-    // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    protected $primaryKey = 'id';
+    public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];
@@ -34,6 +34,13 @@ class Order extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function orders()
+    {
+        return $this->belongsTo(User::class);
+        return $this->hasMany(Orderrow::class);
+    }
+
+
 
     /*
     |--------------------------------------------------------------------------

@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Services\UploadToImgurService;
 
 class User extends Authenticatable
 {
@@ -22,6 +24,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'review_id',
     ];
 
     /**
@@ -42,4 +45,31 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // override the id primary key
+
+    protected $primaryKey = 'id';
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+        
+    public $timestamps = false;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    
+    public function user()
+    {
+        return $this->belongsTo(Roles::class);
+        return $this->hasMany(Order::class);
+        return $this->hasMany(Reviews::class);
+    }
+
 }

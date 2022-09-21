@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ReviewsRequest;
+use App\Models\Products;
+use App\Models\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use COM;
 
 /**
  * Class ReviewsCrudController
@@ -28,7 +31,7 @@ class ReviewsCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Reviews::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/reviews');
-        CRUD::setEntityNameStrings('reviews', 'reviews');
+        CRUD::setEntityNameStrings('review', 'review');
     }
 
     /**
@@ -43,9 +46,10 @@ class ReviewsCrudController extends CrudController
         CRUD::column('comment');
         CRUD::column('created_at');
         CRUD::column('updated_at');
-        CRUD::column('users_id');
-        CRUD::column('product_id');
-
+        CRUD::column('users_id')->label('Users_ID')->type('select')->name('users_id')->entity('review')->attribute('name')->model(User::class);
+        /*
+        CRUD::column('product_id')->label('Products_ID')->type('select')->name('product_id')->entity('review')->attribute('name')->model(Products::class);
+*/
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -64,9 +68,25 @@ class ReviewsCrudController extends CrudController
         
         CRUD::field('id');
         CRUD::field('comment');
-        CRUD::field('users_id');
-        CRUD::field('product_id');
+        $this->crud->addField([
+            'name'            => 'users_id',
+            'label'           => "Users",
+            'type'            => 'select',
+            'entity'          => 'review',
+            'model'           => User::class,
+            'attribute'       => 'name',
+           
+        ]);
 
+        $this->crud->addField([
+            'name'            => 'product_id',
+            'label'           => "Products",
+            'type'            => 'select',
+            'entity'          => 'review',
+            'model'           => Products::class,
+            'attribute'       => 'name',
+           
+        ]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

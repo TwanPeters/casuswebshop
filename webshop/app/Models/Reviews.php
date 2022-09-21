@@ -2,12 +2,18 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Services\UploadToImgurService;
 
 class Reviews extends Model
 {
-    use CrudTrait;
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /*
     |--------------------------------------------------------------------------
@@ -16,10 +22,14 @@ class Reviews extends Model
     */
 
     protected $table = 'reviews';
-    // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    protected $primaryKey = 'id';
+    public $timestamps = true;
     protected $guarded = ['id'];
-    // protected $fillable = [];
+    protected $fillable = [
+        'comment',
+        'users_id',
+        'product_id',
+    ];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,6 +44,18 @@ class Reviews extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    public function review()
+    {
+        return $this->belongsTo(User::class);
+        return $this->belongsTo(Products::class);
+    
+    }
+
+
+       
+        
+  
 
     /*
     |--------------------------------------------------------------------------
@@ -52,4 +74,5 @@ class Reviews extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
 }

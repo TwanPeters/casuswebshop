@@ -15,6 +15,7 @@ class AddRelationsToPricesTable extends Migration
     {
         Schema::table('prices', function (Blueprint $table) {
             $table->unsignedBigInteger('product_id')->nullable();
+            
             $table->foreign('product_id')->references('id')->on('products');
         });
     }

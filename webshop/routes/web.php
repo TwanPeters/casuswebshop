@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Users;
+use App\Models\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +22,4 @@ Route::get('/', function () {
 });
 
 Route::get( '/categories', [FrontendController ::class, 'category']);
+

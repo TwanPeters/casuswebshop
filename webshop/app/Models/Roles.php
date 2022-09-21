@@ -34,7 +34,10 @@ class Roles extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function roles()
+    {
+        return $this->hasMany(User::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ProductsRequest;
+use App\Models\Products;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -44,7 +45,7 @@ class ProductsCrudController extends CrudController
         CRUD::column('description');
         CRUD::column('created_at');
         CRUD::column('updated_at');
-        CRUD::column('category_id');
+       
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -64,8 +65,15 @@ class ProductsCrudController extends CrudController
         CRUD::field('id');
         CRUD::field('name');
         CRUD::field('description');
-        CRUD::field('category_id');
-
+        $this->crud->addField([
+            'name'            => 'category_id',
+            'label'           => "Category_ID",
+            'type'            => 'select',
+            'entity'          => 'product',
+            'model'           => Products::class,
+            'attribute'       => 'name',
+           
+        ]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\UserRequest;
+use App\Models\Roles;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use COM;
@@ -45,8 +46,8 @@ class UserCrudController extends CrudController
         CRUD::column('name');
         CRUD::column('email');
         CRUD::column('password');
-        CRUD::field('role_id');
-        
+        CRUD::column('role_id')->label('Roles')->type('select')->name('role_id')->entity('user')->attribute('name')->model(Roles::class);
+    
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -66,8 +67,16 @@ class UserCrudController extends CrudController
         CRUD::field('name');
         CRUD::field('email');
         CRUD::field('password');
-        CRUD::field('role_id');
-
+        $this->crud->addField([
+            'name'            => 'role_id',
+            'label'           => "Roles",
+            'type'            => 'select',
+            'entity'          => 'user',
+            'model'           => Roles::class,
+            'attribute'       => 'name',
+           
+        ]);
+      
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\OrderRequest;
+use App\Models\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use COM;
 
 /**
  * Class OrderCrudController
@@ -44,7 +46,7 @@ class OrderCrudController extends CrudController
         CRUD::column('orderdate');
         CRUD::column('user_id');
         CRUD::column('status');
-        
+        CRUD::column('users_id')->label('Users')->type('select')->name('users_id')->entity('orders')->attribute('name')->model(User::class);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -63,9 +65,17 @@ class OrderCrudController extends CrudController
         
         CRUD::field('id');
         CRUD::field('orderdate');
-        CRUD::field('user_id');
+        CRUD::field('users_id');
         CRUD::field('status');
-
+        $this->crud->addField([
+            'name'            => 'users_id',
+            'label'           => "Users",
+            'type'            => 'select',
+            'entity'          => 'orders',
+            'model'           => User::class,
+            'attribute'       => 'name',
+           
+        ]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

@@ -22,6 +22,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
         ];
     }
+//php artisan db:seed
 
     /**
      * Indicate that the model's email address should be unverified.

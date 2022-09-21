@@ -34,6 +34,11 @@ class Orderrow extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function orderrow()
+    {
+        return $this->belongsTo(Order::class);
+        return $this->belongsTo(Product::class);
+    }
 
     /*
     |--------------------------------------------------------------------------

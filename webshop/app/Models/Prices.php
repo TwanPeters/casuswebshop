@@ -5,6 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Prices extends Model
 {
     use CrudTrait;
@@ -16,8 +17,8 @@ class Prices extends Model
     */
 
     protected $table = 'prices';
-    // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    protected $primaryKey = 'id';
+    public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];
@@ -34,6 +35,10 @@ class Prices extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function prices()
+    {
+        return $this->belongsTo(Products::class);
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -52,4 +57,5 @@ class Prices extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+
 }

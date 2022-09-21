@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\OrderrowRequest;
+use App\Models\Order;
+use App\Models\Orders;
+use App\Models\Product;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -41,8 +44,8 @@ class OrderrowCrudController extends CrudController
     {
         
         CRUD::column('id');
-        CRUD::column('orders_id');
-        CRUD::column('product_id');
+        CRUD::column('orders_id')->label('Orders_ID')->type('select')->name('orders_id')->entity('orderrow')->attribute('id')->model(Order::class);
+        CRUD::column('product_id')->label('Products_ID')->type('select')->name('product_id')->entity('orderrow')->attribute('name')->model(Product::class);
        
         
         /**
@@ -62,10 +65,25 @@ class OrderrowCrudController extends CrudController
     {
         
         CRUD::field('id');
-        CRUD::field('orders_id');
-        CRUD::field('product_id');
-
+        $this->crud->addField([
+            'name'            => 'orders_id',
+            'label'           => "Orders",
+            'type'            => 'select',
+            'entity'          => 'orderrow',
+            'model'           => Order::class,
+            'attribute'       => 'id',
+           
+        ]);
         
+        $this->crud->addField([
+            'name'            => 'products_id',
+            'label'           => "Product",
+            'type'            => 'select',
+            'entity'          => 'orderrow',
+            'model'           => Product::class,
+            'attribute'       => 'name',
+           
+        ]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
