@@ -46,7 +46,7 @@ class OrderCrudController extends CrudController
         CRUD::column('orderdate');
         CRUD::column('user_id');
         CRUD::column('status');
-        CRUD::column('users_id')->label('Users')->type('select')->name('users_id')->entity('orders')->attribute('name')->model(User::class);
+        CRUD::column('users_id');
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');

@@ -7,6 +7,7 @@ use App\Models\Roles;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use COM;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class UserCrudController
@@ -46,7 +47,7 @@ class UserCrudController extends CrudController
         CRUD::column('name');
         CRUD::column('email');
         CRUD::column('password');
-        CRUD::column('role_id')->label('Roles')->type('select')->name('role_id')->entity('user')->attribute('name')->model(Roles::class);
+        CRUD::column('role_id');/*->label('Roles')->type('select')->name('role_id')->entity('user')->attribute('name')->model(Roles::class);
     
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -54,7 +55,6 @@ class UserCrudController extends CrudController
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
     }
-
     /**
      * Define what happens when the Create operation is loaded.
      * 

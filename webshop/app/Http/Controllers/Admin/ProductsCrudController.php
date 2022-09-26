@@ -45,7 +45,7 @@ class ProductsCrudController extends CrudController
         CRUD::column('description');
         CRUD::column('created_at');
         CRUD::column('updated_at');
-       
+        CRUD::column('category_id');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
