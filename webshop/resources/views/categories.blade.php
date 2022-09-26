@@ -16,9 +16,9 @@
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 
-<body>
+<body style="background-color: #caf0f8">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg" sstyle=" background-color: #caf0f8;">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="#!">Gaming Shop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -42,7 +42,7 @@
                 <form class="d-flex">
                     <button class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill me-1"></i>
-                        Cart
+                        Winkelwagen
                         <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                     </button>
                 </form>
@@ -50,11 +50,11 @@
         </div>
     </nav>
     <!-- Header-->
-    <header class="bg-dark py-5">
+    <header class="bg-primary py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Shop in style</h1>
-                <p class="lead fw-normal text-white-50 mb-0">With this shop homepage template</p>
+                <h1 class="display-4 fw-bolder">Shop met een goed gevoel</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Koop nu je games met waanzinnige prijzen!</p>
             </div>
         </div>
     </header>
@@ -65,35 +65,29 @@
 
 
                 <div class="container">
-                    <div class="row" style=" background-color: white; padding: 50px; ">
+                    <div class="row" style=" background-color: #caf0f8; padding: 50px; ">
                         @foreach($allcategories as $category)
 
 
                         <div class="col-sm-4">
-                            <a style="text-decoration: none;" href="https://www.bol.com/">
-                                <div style=" border:black; border-style:solid; border-width:thin; margin-bottom:5px; background-color: orange; padding: 50px; text-align: center; text-decoration: none; ">{{($category->name)}}</div>
-                                <div class="text-center" style="margin-bottom:50px;"><a class="btn btn-outline-dark mt-auto" href="#">Toevoegen aan winkelwagen</a></div>
+                            <a style="text-decoration: none; color: black;" href="https://www.bol.com/">
+                                <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:5px; padding: 50px; text-align: center; text-decoration: none; ">{{($category->name)}}</div>
+                                <div class="text-center" style="margin-bottom:50px; "><a class="btn btn-outline-dark mt-auto; bg-info" href="#">Toevoegen aan winkelwagen</a></div>
                             </a>
                         </div>
-
-
 
                         {{--<p>({$category})</p>--}}
                         @endforeach
                     </div>
                 </div>
 
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-
-                </div>
             </div>
         </div>
         </div>
         </div>
     </section>
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5 bg-info">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright 2022 &copy; Webshop Gaming. All rights reserved</p>
         </div>
