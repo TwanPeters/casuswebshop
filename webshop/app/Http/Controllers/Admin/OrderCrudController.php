@@ -44,7 +44,6 @@ class OrderCrudController extends CrudController
         
         CRUD::column('id');
         CRUD::column('orderdate');
-        CRUD::column('user_id');
         CRUD::column('status');
         CRUD::column('users_id');
         /**

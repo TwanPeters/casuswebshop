@@ -47,7 +47,7 @@ class PricesCrudController extends CrudController
         CRUD::column('effdate');
         CRUD::column('created_at');
         CRUD::column('updated_at');
-        CRUD::column('product_id')->label('Products_ID')->type('select')->name('product_id')->entity('prices')->attribute('name')->model(Products::class);
+        CRUD::column('product_id');
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');

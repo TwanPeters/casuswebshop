@@ -44,8 +44,8 @@ class OrderrowCrudController extends CrudController
     {
         
         CRUD::column('id');
-        CRUD::column('orders_id')->label('Orders_ID')->type('select')->name('orders_id')->entity('orderrow')->attribute('id')->model(Order::class);
-        CRUD::column('product_id')->label('Products_ID')->type('select')->name('product_id')->entity('orderrow')->attribute('name')->model(Product::class);
+        CRUD::column('orders_id');
+        CRUD::column('product_id');
        
         
         /**
