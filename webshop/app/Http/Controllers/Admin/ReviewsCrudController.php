@@ -46,6 +46,7 @@ class ReviewsCrudController extends CrudController
         CRUD::column('comment');
         CRUD::column('created_at');
         CRUD::column('updated_at');
+        CRUD::column('product_id');
         CRUD::column('users_id');
         /*
         CRUD::column('product_id')->label('Products_ID')->type('select')->name('product_id')->entity('review')->attribute('name')->model(Products::class);
