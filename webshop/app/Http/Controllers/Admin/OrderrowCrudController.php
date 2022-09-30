@@ -76,7 +76,7 @@ class OrderrowCrudController extends CrudController
         ]);
         
         $this->crud->addField([
-            'name'            => 'products_id',
+            'name'            => 'product_id',
             'label'           => "Product",
             'type'            => 'select',
             'entity'          => 'orderrow',

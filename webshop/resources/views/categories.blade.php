@@ -33,7 +33,7 @@
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            <li><a class="dropdown-item" href="#!">Categorie 1</a></li>
+                            <li><a class="dropdown-item" href="/categories/cat1">Categorie 1</a></li>
                             <li><a class="dropdown-item" href="#!">Categorie 2</a></li>
                             <li><a class="dropdown-item" href="#!">Categorie 3</a></li>
                         </ul>
@@ -68,11 +68,11 @@
                     <div class="row" style=" background-color: #caf0f8; padding: 50px; ">
                         @foreach($allcategories as $category)
 
-
+ 
                         <div class="col-sm-4">
                             <a style="text-decoration: none; color: black;" href="https://www.bol.com/">
-                                <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:5px; padding: 50px; text-align: center; text-decoration: none; ">{{($category->name)}}</div>
-                                <div class="text-center" style="margin-bottom:50px; "><a class="btn btn-outline-dark mt-auto; bg-info" href="#">Toevoegen aan winkelwagen</a></div>
+                                <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 50px; text-align: center; text-decoration: none; ">{{($category->name)}}</div>
+
                             </a>
                         </div>
 
