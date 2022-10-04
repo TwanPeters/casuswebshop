@@ -41,7 +41,7 @@ class CategoriesCrudController extends CrudController
     {
         CRUD::column('id');
         CRUD::column('name');
-
+        CRUD::column('ImgURL');
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -55,10 +55,12 @@ class CategoriesCrudController extends CrudController
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
+
     protected function setupCreateOperation()
     {
         CRUD::field('id');
         CRUD::field('name');
+        CRUD::field('ImgURL')->name('ImgURL')->type('upload')->disk('public')->upload(true);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -67,6 +69,7 @@ class CategoriesCrudController extends CrudController
          */
     }
 
+   
     /**
      * Define what happens when the Update operation is loaded.
      * 

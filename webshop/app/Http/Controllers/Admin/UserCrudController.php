@@ -27,6 +27,7 @@ class UserCrudController extends CrudController
      * 
      * @return void
      */
+    
     public function setup()
     {
         CRUD::setModel(\App\Models\User::class);
@@ -47,7 +48,8 @@ class UserCrudController extends CrudController
         CRUD::column('name');
         CRUD::column('email');
         CRUD::column('password');
-        CRUD::column('role_id');/*->label('Roles')->type('select')->name('role_id')->entity('user')->attribute('name')->model(Roles::class);
+        CRUD::column('role_id');
+       
     
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -77,16 +79,7 @@ class UserCrudController extends CrudController
            
         ]);
 
-        $this->crud->addField([
-            'name'      => 'image',
-            'label'     => 'Image',
-            'type'      => 'upload',
-            'upload'    => true,
-            'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
-            // optional:
-            'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URLs this will make a URL that is valid for the number of minutes specified
-           
-        ]);
+ 
       
         /**
          * Fields can be defined using the fluent syntax or array syntax:

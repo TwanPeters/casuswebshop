@@ -5,8 +5,10 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Categories extends Model
 {
+    
     use CrudTrait;
 
     /*
@@ -28,7 +30,18 @@ class Categories extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+   
+   
+    public function setImageAttribute($value)
+    {
+        $attribute_name = "ImgURL";
+        $disk = "public";
+        $destination_path = "/categories";
 
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+
+    // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
