@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
-
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
 
 class Categories extends Model
 {
     
-    use CrudTrait;
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /*
     |--------------------------------------------------------------------------
@@ -18,11 +21,11 @@ class Categories extends Model
     */
 
     protected $table = 'categories';
-    // protected $primaryKey = 'id';
-    // public $timestamps = false;
-    protected $guarded = ['id'];
-    // protected $fillable = [];
-    // protected $hidden = [];
+    protected $primaryKey = 'id';
+    public $timestamps = false;
+    protected $guarded = ['id'];  
+    // protected $fillable = [];   
+    // protected $hidden = [];     
     // protected $dates = [];
 
     /*
@@ -47,9 +50,7 @@ class Categories extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-}
-class Product extends Model
-{
+
 
 
     public function category()

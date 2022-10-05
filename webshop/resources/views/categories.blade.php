@@ -12,7 +12,7 @@
                     @foreach($allcategories as $category)
                     <div class="col-sm-4">
                     <img src='{{ url('/storage/'.$category->ImgURL) }}' >
-                        <a style="text-decoration: none; color: black;" href="">
+                        <a style="text-decoration: none; color: black;" href="/categories/{{$category->name}}">
                             <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 50px; text-align: center; text-decoration: none; ">{{($category->name)}}</div>
 
                         </a>
