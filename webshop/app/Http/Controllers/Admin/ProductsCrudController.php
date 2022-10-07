@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ProductsRequest;
-use App\Models\Products;
+use App\Models\Categories;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -67,10 +67,10 @@ class ProductsCrudController extends CrudController
         CRUD::field('description');
         $this->crud->addField([
             'name'            => 'category_id',
-            'label'           => "Category_ID",
+            'label'           => "Categories",
             'type'            => 'select',
             'entity'          => 'product',
-            'model'           => Products::class,
+            'model'           => Categories::class,
             'attribute'       => 'name',
            
         ]);

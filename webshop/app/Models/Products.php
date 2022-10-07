@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Products extends Model
 {
-    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+    use CrudTrait;
     use HasApiTokens, HasFactory, Notifiable;
 
 
