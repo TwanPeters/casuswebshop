@@ -25,4 +25,4 @@ Route::get( '/categories', [FrontendController ::class, 'category']);
 
 Route::get( '/categories/{category}', [FrontendController ::class, 'products']);
 
-Route::get( '/products', [FrontendController ::class, 'products']);
+Route::get( '/products', [FrontendController ::class, 'product']);

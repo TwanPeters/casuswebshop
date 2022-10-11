@@ -21,6 +21,17 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function lproducts()
+    {
+
+        $AllProducts = Products::all();
+
+        return view('products')->with([
+            "allproducts" => $AllProducts,
+
+        ]);
+    }
+
 
     public function products($category)
     {
