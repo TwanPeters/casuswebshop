@@ -7,11 +7,12 @@
 
 
             <div class="container">
-                <div class="row" style=" background-color: #caf0f8; padding: 50px; ">
+                <div class="row" style=" background-color: #caf0f8; padding: 50px;">
 
                     @foreach($allcategories as $category)
                     <div class="col-sm-4">
-                        <img src='{{ url('/storage/'.$category->ImgURL) }}'>
+                        <img class="card-img-top" src="https://wpmudev.com/wp-content/uploads/2011/03/categories-thumb-1470x940.png">
+                        <!-- <img src='{{ url('/storage/'.$category->ImgURL) }}'> -->
                         <a style="text-decoration: none; color: black;" href="/categories/{{$category->name}}">
                             <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 50px; text-align: center; text-decoration: none; ">{{($category->name)}}</div>
 
