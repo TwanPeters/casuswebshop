@@ -34,7 +34,16 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function price()
+    {
 
+        $AllPrices = Prices::all();
+
+        return view('productlist')->with([
+            "allprices" => $AllPrices,
+
+        ]);
+    }
     public function products($category)
     {
         $categories = DB::table('categories')->where('name', $category)->value('id');
@@ -59,5 +68,5 @@ class FrontendController extends Controller
         ]);
     }
 
-
+  
 }

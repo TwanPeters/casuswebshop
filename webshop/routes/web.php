@@ -25,6 +25,6 @@ Route::get( '/categories', [FrontendController ::class, 'category']);
 
 Route::get( '/categories/{category}', [FrontendController ::class, 'products']);
 
-Route::get( '/{eproduct}', [FrontendController ::class, 'product']);
+Route::get( '/{eproduct}', [FrontendController ::class, 'price']);
 
 
