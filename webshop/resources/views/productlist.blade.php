@@ -1,6 +1,6 @@
 @include('layouts.header')
 
-@foreach($allprices as $price)
+@foreach($product as $price)
 
-{{ dd($price->price) }};
+{{ dump($price->price) }};
 @endforeach

@@ -62,9 +62,9 @@ class FrontendController extends Controller
         if (empty($pro)) {
             abort(404, 'Oeps! Dit product bestaat niet');
         }
-        $product = DB::table('products')->where('id', $pro)->get();
+        $product = DB::table('prices')->where('product_id', $pro)->get();
         return view("productlist")->with([
-            'products' => $product,
+            'product' => $product,
         ]);
     }
 
