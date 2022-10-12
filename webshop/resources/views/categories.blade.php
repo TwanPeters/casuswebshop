@@ -7,7 +7,7 @@
 
 
             <div class="container">
-                <div class="row" style=" background-color: #caf0f8; padding: 50px;">
+                <div class="row" style="background-color: #caf0f8; padding: 50px;">
 
                     @foreach($allcategories as $category)
                     <div class="col-sm-4">
@@ -18,7 +18,7 @@
 
                         </a>
                     </div>
-                    {{--<p>({$category})</p>--}}
+                    {{--<p>({$category})</p>--}}    
                     @endforeach
 
                 </div>

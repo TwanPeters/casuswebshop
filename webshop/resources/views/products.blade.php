@@ -1,3 +1,4 @@
+
 @include('layouts.header')
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
@@ -8,6 +9,7 @@
                 <div class="row" style=" background-color: #caf0f8; padding: 50px; ">
                     @foreach($products as $lproduct)
                     <div class="col-sm-4">
+                    <a style="text-decoration: none; color: black;" href="/{{$lproduct->name}}">
                         <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 50px; text-align: center; text-decoration: none; ">{{ ($lproduct->name) }}</div>
 
                     </div>

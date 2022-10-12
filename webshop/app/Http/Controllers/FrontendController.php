@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class FrontendController extends Controller
 {
+
     public function category()
     {
 
@@ -42,6 +43,18 @@ class FrontendController extends Controller
         $products = DB::table('products')->where('category_id', $categories)->get();
         return view("products")->with([
             'products' => $products,
+        ]);
+    }
+
+    public function product($eproduct)
+    {
+        $pro = DB::table('products')->where('name', $eproduct)->value('id');
+        if (empty($pro)) {
+            abort(404, 'Oeps! Deze categorie bestaat niet');
+        }
+        $product = DB::table('products')->where('id', $pro)->get();
+        return view("productlist")->with([
+            'products' => $product,
         ]);
     }
 }
