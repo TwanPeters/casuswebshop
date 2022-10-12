@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Category;
+use App\Models\Prices;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -50,11 +51,13 @@ class FrontendController extends Controller
     {
         $pro = DB::table('products')->where('name', $eproduct)->value('id');
         if (empty($pro)) {
-            abort(404, 'Oeps! Deze categorie bestaat niet');
+            abort(404, 'Oeps! Dit product bestaat niet');
         }
         $product = DB::table('products')->where('id', $pro)->get();
         return view("productlist")->with([
             'products' => $product,
         ]);
     }
+
+
 }
