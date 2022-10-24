@@ -10,13 +10,16 @@
                 <div class="row" style="background-color: #caf0f8; padding: 50px;">
 
                     @foreach($products as $lproduct)
+
+
                     <div class="col-sm-4">
-                    <img class="card-img-top" src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png">
+                        <img class="card-img-top" src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png">
                         <a style="text-decoration: none; color: black;" href="/{{$lproduct->name}}">
+
                             <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 40px; text-align: center; text-decoration: none; ">{{($lproduct->name)}}</div>
-                            </a>
+                        </a>
                     </div>
-                    
+
                     @endforeach
                 </div>
             </div>

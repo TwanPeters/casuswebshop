@@ -44,6 +44,7 @@ class FrontendController extends Controller
 
         ]);
     }
+
     public function products($category)
     {
         $categories = DB::table('categories')->where('name', $category)->value('id');
@@ -54,6 +55,7 @@ class FrontendController extends Controller
         return view("products")->with([
             'products' => $products,
         ]);
+        
     }
 
     public function product($eproduct)
@@ -66,7 +68,6 @@ class FrontendController extends Controller
         return view("productlist")->with([
             'product' => $product,
         ]);
-    }
-
-  
+        
+    }    
 }
