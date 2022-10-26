@@ -13,17 +13,19 @@
             <img class="card-img-top;" style="margin-bottom: 25px; margin-left:400px; width:200%; " src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png">
         </div>
         <div class="col-sm-4 ">
-            @foreach ($allprices as $allprice)
-            <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 40px; text-align: center; text-decoration: none; ">€{{($allprice->price)}},- <br><br>
-                @endforeach
+            <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 40px; text-align: center; text-decoration: none; ">
+                @foreach ($allprices as $allprice)
+                €{{($allprice->price)}},- <br><br>
+                    @endforeach
 
-                @foreach ($allreviews as $allreview)
-                {{($allreview->comment)}} <br> <br>
+                    @foreach ($allreviews as $allreview)
+                    {{($allreview->comment)}} <br> <br>
 
-                @endforeach
+                    @endforeach
 
-                @foreach ($allproducts as $allproduct)
-                <strong>{{($allproduct->name)}}</strong>
+                    @foreach ($allproducts as $allproduct)
+                    <strong>{{($allproduct->name)}}</strong> <br> <br>
+                   {{($allproduct->description)}}
             </div>
             @endforeach
 
