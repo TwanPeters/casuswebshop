@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Users;
 use App\Models\User;
@@ -25,6 +26,7 @@ Route::get( '/categories', [FrontendController ::class, 'category']);
 
 Route::get( '/categories/{category}', [FrontendController ::class, 'products']);
 
-Route::get( '/{eproduct}', [FrontendController ::class, 'product']);
+Route::get( '/{eproduct}', [FrontendController ::class, 'review']);
+
 
 
