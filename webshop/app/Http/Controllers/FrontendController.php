@@ -57,13 +57,16 @@ class FrontendController extends Controller
         // Price
         $pro = DB::table('products')->where('name', $eproduct)->value('id');
         if (empty($pro)) {
-            abort(404, 'Oeps! Dit product heeft geen prijs');
+            abort(404, 'Oeps! We konden het product niet inladen.');
         }
         // Prices
         $prices = DB::table('prices')->where('product_id', $pro)->get();
         
+
         // Review
         $reviews = DB::table('reviews')->where('product_id', $pro)->get();
+        
+        $rev = Reviews::inRandomOrder()->take(1)->get();
 
         // Product information 
         $prod = DB::table('products')->where('id', $pro)->get();
@@ -88,22 +91,15 @@ class FrontendController extends Controller
         if (empty($categories)) {
             abort(404, 'Oeps! Deze categorie bestaat niet');
         }
+
+        
         $products = DB::table('products')->where('category_id', $categories)->get();
+        $rev = Reviews::inRandomOrder()->where('product_id', $categories)->take(1)->get();
+        
+
         return view("products")->with([
             'products' => $products,
-        ]);
-
-    }
-
-    public function product($eproduct)
-    {
-        $pro = DB::table('products')->where('name', $eproduct)->value('id');
-        if (empty($pro)) {
-            abort(404, 'Oeps! Dit product bestaat niet');
-        }
-        $product = DB::table('prices')->where('product_id', $pro)->get();
-        return view("productlist")->with([
-            'product' => $product,
+            'reviews'  => $rev,
         ]);
 
     }

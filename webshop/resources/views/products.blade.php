@@ -18,8 +18,13 @@
 
                             <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 40px; text-align: center; text-decoration: none; ">{{($lproduct->name)}}</div>
                         </a>
-                    </div>
+                        </div>
+                    @endforeach
+                    @foreach($reviews as $revi)
+                <strong>    Review in deze categorie:  </strong> <br> <br>
+                    <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 40px; text-align: center; text-decoration: none; ">{{($revi->comment)}}</div>
 
+                    
                     @endforeach
                 </div>
             </div>
