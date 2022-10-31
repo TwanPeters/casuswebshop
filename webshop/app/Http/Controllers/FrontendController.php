@@ -64,7 +64,7 @@ class FrontendController extends Controller
         
 
         // Review
-        $reviews = DB::table('reviews')->where('product_id', $pro)->get();
+        $reviews = Reviews::inRandomOrder()->take(3)->where('product_id', $pro)->get();
         
         $rev = Reviews::inRandomOrder()->take(1)->get();
 
