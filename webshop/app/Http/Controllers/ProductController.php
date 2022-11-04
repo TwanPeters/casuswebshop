@@ -15,6 +15,9 @@ class ProductController extends Controller
 
         $categories = DB::table('categories')->where('name', $category)->value('id');
         $products = DB::table('products')->where('category_id', $categories)->get();
+        
+        $produc = DB::table ('products')->where('name', $category)->value('id');
+        $prices = DB::table ('prices')->where('product_id', $produc)->get();
         return view('products', compact('products'));
     }
 } 

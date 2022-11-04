@@ -7,6 +7,7 @@
         <h3 class="text-2xl font-medium text-gray-700">Producten:</h3>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
+                
             <div class="w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-md">
                 <div class="flex items-end justify-end w-full bg-cover">
                     
@@ -19,6 +20,7 @@
                         <input type="hidden" value="{{ $product->name }}" name="name">
                         <input type="hidden" value="1" name="quantity">
                         <img class="card-img-top" src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png">
+                        <br>
                         <button class="px-4 py-2 text-white bg-blue-800 rounded">Toevoegen aan de winkelwagen</button>
                         <br>
                         <br>
@@ -27,6 +29,7 @@
                 
             </div>
             @endforeach
+
         </div>
     </div>
     <br><br><br>

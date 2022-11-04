@@ -10,7 +10,7 @@
 
             <div class="container">
                 <div class="row" style="background-color: #caf0f8; padding: 50px;">
-
+                    <h1 class= "mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"> Welkom! </h1>
                     @foreach($allcategories as $category)
                     <div class="col-sm-4">
                         <img class="card-img-top" src="https://wpmudev.com/wp-content/uploads/2011/03/categories-thumb-1470x940.png">
@@ -20,7 +20,7 @@
 
                         </a>
                     </div>
-                    {{--<p>({$category})</p>--}}    
+                    {{--<p>({$category})</p>--}}
                     @endforeach
 
                 </div>
