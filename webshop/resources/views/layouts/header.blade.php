@@ -20,25 +20,8 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg" style=" background-color: #caf0f8;">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="http://127.0.0.1:8000">GamePaleis</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Over ons</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Winkelen</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#!">Producten</a></li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li><a class="dropdown-item" href="/categories/cat1">Categorie 1</a></li>
-                            <li><a class="dropdown-item" href="#!">Categorie 2</a></li>
-                            <li><a class="dropdown-item" href="#!">Categorie 3</a></li>
-                        </ul>
-                    </li>
-                </ul>
+            <a class="navbar-brand" href="http://127.0.0.1:8000/categories">GamePaleis</a>
+            
                 <form class="d-flex">
                         <a href="{{ route('cart.list') }}" class="flex items-center">
                             <svg class="w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
