@@ -1,43 +1,31 @@
 @include('layouts.header')
 
-<!-- Section-->
-<section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row" style=" background-color: white; padding: 0px;">
+@extends('frontend')
 
-
-            <div class="container">
-                <div class="row" style="background-color: #caf0f8; padding: 50px;">
-
-                    @foreach($products as $lproduct)
-
-
-                    <div class="col-sm-4">
-                        <img class="card-img-top" src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png">
-                        <a style="text-decoration: none; color: black;" href="/{{$lproduct->name}}">
-
-                            <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 40px; text-align: center; text-decoration: none; ">{{($lproduct->name)}}</div>
-                        </a>
-                        </div>
-                    @endforeach
-                    @foreach($reviews as $revi)
-                <strong>    Review in deze categorie:  </strong> <br> <br>
-                    <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 40px; text-align: center; text-decoration: none; ">{{($revi->comment)}}</div>
-
+@section('content')
+    <div class="container px-6 mx-auto">
+        <h3 class="text-2xl font-medium text-gray-700">Product List</h3>
+        <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            @foreach ($products as $product)
+            <div class="w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-md">
+                <div class="flex items-end justify-end w-full bg-cover">
                     
-                    @endforeach
                 </div>
+                <div class="px-5 py-3">
+                    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3>
+                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{ $product->id }}" name="id">
+                        <input type="hidden" value="{{ $product->name }}" name="name">
+                        <input type="hidden" value="1" name="quantity">
+                        <button class="px-4 py-2 text-white bg-blue-800 rounded">Toevoegen aan de winkelwagen</button>
+                        <br>
+                        <br>
+                        <a class="btn btn-primary" href="/{{$product->name}}" role="button">Informatie</a>                    </form>
+                </div>
+                
             </div>
+            @endforeach
         </div>
     </div>
-    </div>
-    </div>
-</section>
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
-</body>
-
-</html>
-@include('layouts.footer')
+@endsection

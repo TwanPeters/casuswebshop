@@ -104,4 +104,8 @@ class FrontendController extends Controller
 
     }
    
+    public function cart($cart)
+    {
+        return view ("cart");
+    }
 }

@@ -18,21 +18,24 @@
             <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 40px; text-align: center; text-decoration: none; ">
                 @foreach ($allprices as $allprice)
                 €{{($allprice->price)}},- <br><br>
-                    @endforeach
+                @endforeach
 
-                    @foreach ($allproducts as $allproduct)
-                    <strong>{{($allproduct->name)}}</strong> <br> <br>
-                   {{($allproduct->description)}}</div>
-                   @endforeach
-                   
-                   <strong>    Reviews:  </strong> <br> <br>
-                   @foreach ($allreviews as $allreview)
-                    <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 40px; text-align: center; text-decoration: none; ">{{($allreview->comment)}}</div>
-                   @endforeach
+                @foreach ($allproducts as $allproduct)
+                <strong>{{($allproduct->name)}}</strong> <br> <br>
+                {{($allproduct->description)}}
+            </div>
+            @endforeach
 
-        <button type="button" class="btn btn-info">Toevoegen aan winkelwagen</button>
+            <strong> Reviews: </strong> <br> <br>
+            @foreach ($allreviews as $allreview)
+            <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 40px; text-align: center; text-decoration: none; ">{{($allreview->comment)}}</div>
+            @endforeach
+
+          
+            <button type="button" class="btn btn-info">Toevoegen aan winkelwagen</button>
+
         </div>
-</div>
+    </div>
 
     </div>
     </div>
