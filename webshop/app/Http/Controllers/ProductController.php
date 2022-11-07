@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Reviews;
 
 
 class ProductController extends Controller
@@ -14,10 +15,18 @@ class ProductController extends Controller
     {
 
         $categories = DB::table('categories')->where('name', $category)->value('id');
-        $products = DB::table('products')->where('category_id', $categories)->get();
+        if (empty($categories)) {
+            abort(404, 'Oeps! Dit product bestaat niet');
+        }
         
-        $produc = DB::table ('products')->where('name', $category)->value('id');
-        $prices = DB::table ('prices')->where('product_id', $produc)->get();
-        return view('products', compact('products'));
+        $products = DB::table('products')->where('category_id', $categories)->get();
+       
+        $produc = DB::table('products')->where('category_id', $categories)->value('id');
+        $reviews = Reviews::inRandomOrder()->take(3)->where('product_id', $produc)->get();
+        return view('products')->with([
+            "products" => $products,
+            "reviews" => $reviews,
+
+        ]);
     }
 } 

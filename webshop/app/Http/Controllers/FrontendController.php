@@ -57,7 +57,7 @@ class FrontendController extends Controller
         // Price
         $pro = DB::table('products')->where('name', $eproduct)->value('id');
         if (empty($pro)) {
-            abort(404, 'Oeps! We konden het product niet inladen.');
+            abort(404, 'Oeps! We konden de homepagina niet laden.');
         }
         // Prices
         $prices = DB::table('prices')->where('product_id', $pro)->get();
@@ -66,8 +66,6 @@ class FrontendController extends Controller
         // Review
         $reviews = Reviews::inRandomOrder()->take(3)->where('product_id', $pro)->get();
         
-        $rev = Reviews::inRandomOrder()->take(1)->get();
-
         // Product information 
         $prod = DB::table('products')->where('id', $pro)->get();
         // $categories = DB::table('products')->where('name', $eproduct)->value('id');

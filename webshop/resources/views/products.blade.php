@@ -7,7 +7,7 @@
         <h3 class="text-2xl font-medium text-gray-700">Producten:</h3>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             @foreach ($products as $product)
-                
+            
             <div class="w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-md">
                 <div class="flex items-end justify-end w-full bg-cover">
                     
@@ -21,18 +21,40 @@
                         <input type="hidden" value="1" name="quantity">
                         <img class="card-img-top" src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png">
                         <br>
+                        <br>
                         <button class="px-4 py-2 text-white bg-blue-800 rounded">Toevoegen aan de winkelwagen</button>
-                        <br>
-                        <br>
+
                         <a class="btn btn-primary" href="/{{$product->name}}" role="button">Informatie</a>                    </form>
                 </div>
                 
             </div>
-            @endforeach
+            @endforeach 
+            <br>
+       
 
         </div>
+
     </div>
+    <br>
+    <br>
+    <br>
+
+
+    <strong style="margin-left: 25px;"> Reviews in deze categorie:  </strong> <br>
+    @foreach ($reviews as $review)
+
+  <div class="grid grid-cols-4 gap-4" >
+  <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-left: 25px; margin-bottom:10px; padding: 20px; text-align: center; text-decoration: none; ">{{($review->comment)}}</div>
+
+
+</div>
+
+            @endforeach
+            
     <br><br><br>
+
+    <a href="javascript:history.back()" class="btn btn-primary">Terug</a>
+    
     @include('layouts.footer')
 @endsection
 
