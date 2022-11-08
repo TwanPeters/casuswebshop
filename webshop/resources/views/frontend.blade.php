@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-   
+
     <title>Add to cart</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>

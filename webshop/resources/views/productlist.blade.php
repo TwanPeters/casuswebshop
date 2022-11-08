@@ -1,50 +1,71 @@
 @include('layouts.header')
-
-
-
 <section class="py-5">
-    <div class="container px-10 px-lg-5 mt-3">
+    <!DOCTYPE html>
+    <html lang="en">
 
-        <div class="col-sm-2 ">
 
+    <!--Main layout-->
+    <main class="mt-5 pt-4">
+        <div class="container dark-grey-text mt-5">
 
-            <!-- <div class="float-align-right "> -->
+            <!--Grid row-->
+            <div class="row wow fadeIn">
 
-            <img class="card-img-top;" style="margin-bottom: 25px; margin-left:400px; width:200%; " src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png">
-        </div>
+                <!--Grid column-->
+                <div class="col-md-6 mb-4">
 
-        <div class="d-flex justify-content-center">
-            <div class="col-sm-4">
-                @foreach ($allprices as $allprice)
-                €{{($allprice->price)}},- <br><br>
-                
-                @endforeach
-                <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:30px; padding: 40px; text-align: center; text-decoration: none; ">
+                    <img src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png" class="img-fluid" alt="">
 
-                @foreach ($allproducts as $allproduct)
-                    <strong>{{($allproduct->name)}}</strong> <br> <br>
-                    {{($allproduct->description)}}
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4">
+
+                    <!--Content-->
+                    <div class="p-4">
+
+                        <p class="lead">
+                            @foreach ($allprices as $allprice)
+
+                            <span>€{{($allprice->price)}}</span>
+                            @endforeach
+                        </p>
+
+                        <p class="lead font-weight-bold">Beschrijving</p>
+                        @foreach ($allproducts as $allproduct)
+                        {{($allproduct->description)}}
+                        @endforeach
+                        <form class="d-flex justify-content-left">
+                            <!-- Default input -->
+                            <button class="btn btn-primary btn-md my-0 p" type="submit">Toevoegen aan winkelwagen
+                                <i class="fas fa-shopping-cart ml-1"></i>
+                            </button>
+
+                        </form>
+
                     </div>
-                @endforeach
+                    <!--Content-->
 
-
-
-
-
-                <strong> Reviews: </strong> <br> <br>
-                @foreach ($allreviews as $allreview)
-                <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:10px; padding: 20px; text-align: center; text-decoration: none; ">{{($allreview->comment)}}</div>
-                @endforeach
+                </div>
+                <!--Grid column-->
 
             </div>
-        </div>
-        <button type="button" class="btn btn-info">Toevoegen aan winkelwagen</button>
+            <!--Grid row-->
 
+            <hr>
 
-    </div>
+            <!--Grid row-->
+            <div class="row d-flex justify-content-center wow fadeIn">
+                <div class="col-sm-4">
+                    <strong> Reviews: </strong> <br> <br>
+                    @foreach ($allreviews as $allreview)
+                    <div class="bg-primary" style=" border:black; border-style:solid; border-width:thin; margin-bottom:10px; padding: 20px; text-align: center; text-decoration: none; ">{{($allreview->comment)}}</div>
+                    @endforeach
+                    </body>
 
-    </div>
-    </div>
+    </html>
+
     </body>
 </section>
 <!-- Bootstrap core JS-->
