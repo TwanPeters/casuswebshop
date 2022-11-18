@@ -6,6 +6,8 @@
     <div class="container px-6 mx-auto">
         <h3 class="text-2xl font-medium text-gray-700">Producten:</h3>
         <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        @foreach ($prices as $price)
+
             @foreach ($products as $product)
             
             <div class="w-full max-w-sm mx-auto overflow-hidden rounded-md shadow-md">
@@ -14,10 +16,14 @@
                 </div>
                 <div class="px-5 py-3">
                 <strong>    <h3 class="text-gray-700 uppercase">{{ $product->name }}</h3> </strong>
+                <strong>    <h3 class="text-gray-700 uppercase">{{ $price->price }}</h3> </strong>
+
                     <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" value="{{ $product->id }}" name="id">
                         <input type="hidden" value="{{ $product->name }}" name="name">
+                        <input type="hidden" value="{{ $price->price }}" name="price">
+
                         <input type="hidden" value="1" name="quantity">
                         <img class="card-img-top" src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png">
                         <br>
@@ -28,6 +34,7 @@
                 </div>
                 
             </div>
+            @endforeach
             @endforeach 
             <br>
        

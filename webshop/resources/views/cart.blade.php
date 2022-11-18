@@ -1,5 +1,6 @@
 @extends('frontend')
 
+@include('layouts.header')
 
 @section('content')
           <main class="my-8">
@@ -23,7 +24,7 @@
                                 <span class="hidden lg:inline">Aantal</span>
                               </th>
                               <th class="hidden text-right md:table-cell"> Prijs</th>
-                              <th class="hidden text-right md:table-cell"> Verwijderen </th>
+                              <th class="hidden text-right md:table-cell"> Verwijder Product</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -56,14 +57,14 @@
                               </td>
                               <td class="hidden text-right md:table-cell">
                                 <span class="text-sm font-medium lg:text-base">
-                                    ${{ $item->price }}
+                                    €{{ $item->price }},-
                                 </span>
                               </td>
                               <td class="hidden text-right md:table-cell">
                                 <form action="{{ route('cart.remove') }}" method="POST">
                                   @csrf
                                   <input type="hidden" value="{{ $item->id }}" name="id">
-                                  <button class="px-4 py-2 text-white bg-red-600">x</button>
+                                  <button class="px-4 py-2 text-white bg-red-600">X</button>
                               </form>
                                 
                               </td>
@@ -73,12 +74,13 @@
                           </tbody>
                         </table>
                         <div>
-                         Totaalprijs ${{ Cart::getTotal() }}
+                         Totaalprijs: €{{ Cart::getTotal() }},-
                         </div>
                         <div>
                           <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
-                            <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
+                            <button class="px-6 py-2 text-red-800 bg-red-300">Verwijder alles uit de winkelwagen</button>
+                            <button class="px-6 py-2 text-blue-800 bg-blue-300">Bestellen</button>
                           </form>
                         </div>
 

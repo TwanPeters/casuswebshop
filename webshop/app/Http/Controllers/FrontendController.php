@@ -54,7 +54,8 @@ class FrontendController extends Controller
     public function review($eproduct)
     {
 
-        // Price
+
+        // Products
         $pro = DB::table('products')->where('name', $eproduct)->value('id');
         if (empty($pro)) {
             abort(404, 'Oeps! We konden de homepagina niet laden.');
@@ -68,11 +69,7 @@ class FrontendController extends Controller
         
         // Product information 
         $prod = DB::table('products')->where('id', $pro)->get();
-        // $categories = DB::table('products')->where('name', $eproduct)->value('id');
-        // if (empty($categories)) {
-        //     abort(404, 'Oeps! Deze categorie bestaat niet');
-        // }
-        // $products = DB::table('products')->where('category_id', $categories)->get();
+
 
         return view('productlist')->with([
             "allreviews" => $reviews,
